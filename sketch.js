@@ -33,18 +33,27 @@ function setup() {
 function draw() {
   background("lightblue");
 
- 
+  if(gameState === PLAY){
     chance.visible =false;
     if(mousePressedOver(coin)){
-      coin.addImage(coin2Img);
-      coin.scale=0.03;
+    
+   
       coin.velocityY = 5;
       count = count +1
       gameState = END;
     }
-  
+  }
 
-   
+  else if(gameState === END ){
+    textSize(12);
+    fill("red");
+  
+    text("Coins = " + count,160,30)
+    
+    if(mousePressedOver(chance)){
+      reset()
+    }
+  }
  
   drawSprites();
   
